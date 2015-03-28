@@ -14,7 +14,7 @@ public class Application extends Controller {
         public String validate() {return  null;}
     }
     public static class SignUp {
-        public String handle, firstname, lastname, college, password, confirm;
+        public String name, username, password, degree, clinic, bio;
 
         public String validate() {
             return null;
