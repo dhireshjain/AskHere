@@ -13,6 +13,8 @@ POST        /enter/signup        controllers.Application.authenticateSignUp()
 
 GET         /logout              controllers.Application.logout()
 
+GET         /profile/:doctor      controllers.Profile.profile(doctor)
+
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file        controllers.Assets.at(path="/public", file)
 

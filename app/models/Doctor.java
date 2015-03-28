@@ -103,6 +103,13 @@ public class Doctor {
         return null;
     }
 
+    public static String validate(String username, String password){
+        if(username.length()==1){
+            return null;
+        }
+        return "error";
+    }
+
     public static boolean checkUniqueUsername(String username) {
         Doctor doctor = Doctor.doctorCollection.findOneById(username);
         if (username == null) {

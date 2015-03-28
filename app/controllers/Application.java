@@ -13,6 +13,7 @@ public class Application extends Controller {
 
     public static class Login{
         String username , password;
+
     }
 
     public static class SignUp {
@@ -65,6 +66,15 @@ public class Application extends Controller {
         Form<SignUp> filledForm = signForm.bindFromRequest();
         if (filledForm.hasErrors())
             return badRequest(enter.render(loginForm,filledForm));
+
+        String name = signForm.get().name;
+        String username = signForm.get().username;
+        String password = signForm.get().password;
+        String degree = signForm.get().degree;
+        String clinic = signForm.get().clinic;
+        String bio = signForm.get().bio;
+
+        Doctor.insertDoctorDetails(name, username, password, degree, clinic, bio);
         session().clear();
         session("handle","doctor");
         return redirect(controllers.routes.Application.index());
