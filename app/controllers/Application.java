@@ -16,11 +16,8 @@ public class Application extends Controller {
     }
 
     public static class SignUp {
-<<<<<<< HEAD
-        public String name, username, password, degree, clinic, bio;
-=======
+
         public String name, username, password, confirmpassword, degree, clinic, bio;
->>>>>>> 2f2cbfd41ac158bb527cb678a0a910386d691f47
 
         public String validate() {
             return Doctor.validate(name, username, password, confirmpassword, degree, clinic, bio);
