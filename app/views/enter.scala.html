@@ -25,11 +25,13 @@
         <div class="tab-pane fade" id="signup">
         @helper.form(action = routes.Application.authenticateSignUp){
             <h1>Sign Up</h1>
-            <input class="form-control" type="name" name="name" placeholder="Name"><br>
-            <input class="form-control" type="name" name="username" placeholder="UserName"><br>
+            <input class="form-control" type="text" name="name" placeholder="Name"><br>
+            <input class="form-control" type="text" name="username" placeholder="UserName"><br>
             <input class="form-control" type="password" name="password" placeholder="Password"><br>
-            <input class="form-control" type="name" name="qualification" placeholder="Qualification"><br>
-            <input class="form-control" type="name" name="bio" placeholder="BIO"><br>
+            <input class="form-control" type="password" name="confirmpassword" placeholder="Confirm Password"><br>
+            <input class="form-control" type="text" name="degree" placeholder="Qualification"><br>
+            <input class="form-control" type="text" name="clinic" placeholder="Place of work"><br>
+            <input class="form-control" type="text" name="bio" placeholder="Short description"><br>
             <button class="btn btn-success mar" type="submit">SignUp</button>
             @if(signForm.hasGlobalErrors) {
                 <p class="error" style="color: red">@signForm.globalError.message</p>

@@ -4,6 +4,8 @@ import net.vz.mongodb.jackson.Id;
 import net.vz.mongodb.jackson.JacksonDBCollection;
 import play.modules.mongodb.jackson.MongoDB;
 
+import javax.print.Doc;
+
 /**
  * Created by Darshan on 3/28/2015.
  */
@@ -85,9 +87,25 @@ public class Doctor {
         this.bio = bio;
     }
 
+    public static String validate(String name, String username, String password, String confirmPassword, String degree, String clinic, String bio) {
+        if (username.length() < 4 || Doctor.checkUniqueUsername(username)) {
+            System.out.println(username);
+            return "Username must be unique and exceed 3 characters length";
+        }
+
+        if (password.length() < 6) {
+            return "Password must be atleast 6 characters in length";
+        }
+        if (password.compareTo(confirmPassword) != 0) {
+            return "Passwords don't match";
+        }
+
+        return null;
+    }
+
     public static boolean checkUniqueUsername(String username) {
         Doctor doctor = Doctor.doctorCollection.findOneById(username);
-        if (username.compareTo(doctor.username) == 0) {
+        if (username == null) {
             return true;
         } else {
             return false;
